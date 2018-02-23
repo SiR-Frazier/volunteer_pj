@@ -2,16 +2,16 @@ class Project
   attr_reader(:title, :id)
 
   def initialize(attributes)
-    @title = attributes.fetch(:title)
-    @id = attributes.fetch(:id)
+    @title = attributes[:title]
+    @id = attributes[:id]
   end
 
   def self.all
     projects = []
     returned_projects = DB.exec("SELECT * FROM project;")
-    returned_projects.each() do |list|
-      title = title.fetch(:title)
-      id = id.fetch(:id)
+    returned_projects.each() do |project|
+      title = project.fetch("title")
+      id = project.fetch("id").to_i()
       projects.push(Project.new({:title => title, :id => id}))
     end
     projects

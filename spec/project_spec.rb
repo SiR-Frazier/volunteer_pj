@@ -21,7 +21,7 @@ describe Project do
       expect(project.id).to be_an_instance_of Integer
     end
   end
-  
+
   describe '#==' do
     it 'is the same project if two projects have the same title' do
       project1 = Project.new({:title => 'Teaching Kids to Code', :id => nil})
@@ -30,27 +30,26 @@ describe Project do
     end
   end
 
-  # context '.all' do
-  #   it 'is empty to start' do
-  #     expect(Project.all).to eq []
-  #   end
-  #
-  #   it 'returns all projects' do
-  #     project1 = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-  #     project1.save
-  #     project2 = Project.new({:title => 'Teaching Ruby to Kids', :id => nil})
-  #     project2.save
-  #     expect(Project.all).to eq [project1, project2]
-  #   end
-  # end
-  #
-  # describe '#save' do
-  #   it 'saves a project to the database' do
-  #     project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-  #     project.save
-  #     expect(Project.all).to eq [project]
-  #   end
-  # end
+  context '.all' do
+    it 'is empty to start' do
+      expect(Project.all).to eq []
+    end
+
+    it 'returns all projects' do
+      project1 = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+      project1.save
+      project2 = Project.new({:title => 'Teaching Ruby to Kids', :id => nil})
+      project2.save
+      expect(Project.all).to eq [project1, project2]
+    end
+  
+  describe '#save' do
+    it 'saves a project to the database' do
+      project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+      project.save
+      expect(Project.all).to eq [project]
+    end
+  end
   #
   # describe '.find' do
   #   it 'returns a project by id' do
@@ -90,4 +89,4 @@ describe Project do
   #     project.delete
   #     expect(Project.all).to eq []
   #   end
-# end
+  end
