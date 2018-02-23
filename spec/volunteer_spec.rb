@@ -22,12 +22,12 @@ describe Volunteer do
       expect(volunteer1 == volunteer2).to eq true
     end
   end
-#
-#   context '.all' do
-#     it 'is empty to start' do
-#       expect(Volunteer.all).to eq []
-#     end
-#
+
+  context '.all' do
+    it 'is empty to start' do
+      expect(Volunteer.all).to eq []
+    end
+  end  
 #     it 'returns all volunteers' do
 #       volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
 #       volunteer1.save
