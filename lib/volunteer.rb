@@ -1,5 +1,5 @@
 class Volunteer
-  attr_reader :name, :id, :project_id
+  attr_reader(:name, :id, :project_id)
 
   def initialize(attributes)
     @name = attributes[:name]
@@ -12,8 +12,8 @@ class Volunteer
     returned_volunteers = DB.exec("SELECT * FROM volunteer;")
     returned_volunteers.each do |volunteer|
       name = volunteer.fetch("name")
-      id = volunteer.fetch("id")
-      project_id = volunteer.fetch("project_id")
+      id = volunteer.fetch("id").to_i
+      project_id = volunteer.fetch("project_id").to_i
       volunteers.push(Volunteer.new({:name => name, :id => id, :project_id => project_id}))
     end
     volunteers
@@ -36,5 +36,5 @@ class Volunteer
       end
     end
     found_volunteer
-  end  
+  end
 end
