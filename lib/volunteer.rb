@@ -7,15 +7,6 @@ class Volunteer
     @project_id = attributes[:project_id]
   end
 
-  def save
-    result = DB.exec("INSERT INTO volunteer (name, project_id) VALUES ('#{@name}', '#{@project_id}') RETURNING id;")
-    @id = result.first().fetch("id").to_i()
-  end
-
-  def ==(another_volunteer)
-    self.name().==(another_volunteer.name()).& self.id().==(another_volunteer.id())
-  end
-
   def self.all
     volunteers = []
     returned_volunteers = DB.exec("SELECT * FROM volunteer;")
@@ -27,4 +18,23 @@ class Volunteer
     end
     volunteers
   end
+
+  def save
+    result = DB.exec("INSERT INTO volunteer (name, project_id) VALUES ('#{@name}', '#{@project_id}') RETURNING id;")
+    @id = result.first().fetch("id").to_i()
+  end
+
+  def ==(another_volunteer)
+    self.name().==(another_volunteer.name()).& self.id().==(another_volunteer.id())
+  end
+
+  def self.find(id)
+    found_volunteer = nil
+    Volunteer.all().each() do |volunteer|
+      if volunteer.id().==(id)
+        found_volunteer = volunteer
+      end
+    end
+    found_volunteer
+  end  
 end
