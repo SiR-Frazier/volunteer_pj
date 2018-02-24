@@ -20,6 +20,7 @@ class Project
   def save
     result = DB.exec("INSERT INTO project (title) VALUES ('#{@title}') RETURNING id;")
     @id = result.first().fetch("id").to_i()
+    # binding.pry
   end
 
   def ==(another_project)
@@ -37,15 +38,15 @@ class Project
   end
 
   def volunteers
-    volunteers = []
+    volunteersList = []
     volunteers = DB.exec("SELECT * FROM volunteer WHERE project_id = #{self.id()};")
     volunteers.each() do |volunteer|
       name = volunteer.fetch("name")
       project_id = volunteer.fetch("project_id")
       id = volunteer.fetch("id").to_i
-      volunteers.push(Volunteer.new({:name => name, :project_id => project_id, :id => id}))
+      volunteersList.push(Volunteer.new({:name => name, :project_id => project_id, :id => id}))
     end
-    volunteers
+    volunteersList
   end
 
   def update(attributes)
