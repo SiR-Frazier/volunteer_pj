@@ -17,10 +17,14 @@ get('/project/new') do
 end
 
 post('/project') do
+  title = params.fetch("title")
+  project = Project.new({:title => title, :id => nil})
+  project.save()
   erb(:success)
 end
 
 get('/project') do
+  @projects = Project.all()
   erb(:projects)
 end
 
