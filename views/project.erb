@@ -1,0 +1,20 @@
+<h2><%= @project.title() %></h3>
+<p>Description</p>
+
+<% if @project.volunteers().any?() %>
+  <h3>Here are all of the volunteers for this project:</h3>
+
+  <ul>
+    <% @project.volunteers().each() do |volunteer| %>
+      <li><%= volunteer.name() %></li>
+    <% end %>
+  </ul>
+
+  <% else %>
+    <p>Currently, there are no volunteers for this project<p>
+  <% end %>
+
+  <div class="container">
+    <a href="/">Home</a>
+    <a href="/projects">View All Projects</a>
+  </div>
