@@ -16,7 +16,7 @@ get('/project/new') do
   erb(:project_form)
 end
 
-post('/project/success') do
+post('/project/new') do
   title = params.fetch("title")
   project = Project.new({:title => title, :id => nil})
   project.save()

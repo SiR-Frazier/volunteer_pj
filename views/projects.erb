@@ -5,7 +5,7 @@
 
 <ul>
   <% @projects.each do |project| %>
-  <li><a href="/project/edit"<%=project.id() %><%project.name() %></a><li>
+  <li><a href="/project/edit"<%=project.id() %><%project.title() %></a><li>
   <% end %>
 </ul>
 <% else %>
@@ -13,6 +13,6 @@
 <% end %>
 
 <div class="container">
-  <a href="/">Home</a>
-  <a href="/project/new">Add New Project</a>
+  <button><a href="/">Home</a></button>
+  <button><a href="/project/new">Add New Project</a></button>
 </div>
