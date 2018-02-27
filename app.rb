@@ -23,7 +23,7 @@ post('/project/success') do
   erb(:success)
 end
 
-get('/project') do
+get('/projects') do
   @projects = Project.all()
   erb(:projects)
 end

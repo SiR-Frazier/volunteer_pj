@@ -1,11 +1,11 @@
 <h1>Project Directory</h1>
 
-<% if @project().any?() %>
+<% if @projects.any?() %>
 <h2>Here are our current projects:</h2>
 
 <ul>
-  <% @project.each do |project| %>
-  <li><a href="/project_edit"<%=project.id() %><%project.name() %></a><li>
+  <% @projects.each do |project| %>
+  <li><a href="/project/edit"<%=project.id() %><%project.name() %></a><li>
   <% end %>
 </ul>
 <% else %>
@@ -14,5 +14,5 @@
 
 <div class="container">
   <a href="/">Home</a>
-  <a href="/project_form">Add New Project</a>
+  <a href="/project/new">Add New Project</a>
 </div>
