@@ -1,15 +1,17 @@
-<h1>Project Directory</h1>
+<h1>Current Projects</h1>
 
 <% if @projects.any?() %>
-<h2>Here are our current projects:</h2>
+<h2>Here are our projects:</h2>
 
 <ul>
   <% @projects.each do |project| %>
-  <li><a href="/project/edit/<%= project.id()%>"><%=project.title() %></a><li>
+    <li><a href="/project/edit/<%= project.id()%>"><%=project.title()%></a> <li>
   <% end %>
 </ul>
 <% else %>
+
 <h2>Currently, there aren't any projects.</h2>
+
 <% end %>
 
 <div class="container">
