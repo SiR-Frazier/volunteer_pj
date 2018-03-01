@@ -52,3 +52,7 @@ delete("/project/:id") do
   @projects = Project.all()
   erb(:projects)
 end
+
+post('/volunteer') do
+
+end

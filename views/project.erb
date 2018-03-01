@@ -14,7 +14,18 @@
     <p>Currently, there are no volunteers for this project<p>
   <% end %>
 
-  <div class="container">
-    <a href="/">Home</a>
-    <a href="/projects">View All Projects</a>
+<h2>Add a Volunteer</h2>
+  <form action="/volunteer/new" method="post">
+    <div class="form-group">
+      <label class="form-label" for="volunteer">Volunteer Name:</label>
+      <br>
+      <input class="form-control" id="name" name="tinametle" type="text" placeholder="name">
+      <br>
+      <button type="submit" class="button btn-primary">Add</button>
+    </div>
+  </form>
+
+    <button><a href="/">Home</a></button>
+    <button><a href="/project/<%=@project.id()%>/edit"></a>Edit Project</button>
+    <button><a href="/projects">View All Projects</a></button>
   </div>
