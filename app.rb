@@ -29,13 +29,13 @@ get('/projects') do
 end
 
 get('/project/:id/edit') do
-  @project = Project.find(params.fetch("id").to_i)
+  @project = Project.find(params.fetch("id").to_i())
   erb(:project_edit)
 end
 
 patch("/project/:id") do
   title = params.fetch("title")
-  @project = Project.find(params.fetch("id").to_i)
+  @project = Project.find(params.fetch("id").to_i())
   @project.update({:name => name})
   @projects = Project.all()
   erb(:success)
