@@ -36,7 +36,7 @@ end
 patch("/project/:id") do
   title = params.fetch("title")
   @project = Project.find(params.fetch("id").to_i())
-  @project.update({:name => name})
+  @project.update({:title => title})
   @projects = Project.all()
   erb(:success)
 end
