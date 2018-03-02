@@ -63,3 +63,23 @@ post('/project/:id') do
   @volunteers = Volunteer.all()
   erb(:success)
 end
+
+get('/volunteer/:id') do
+  project_id = params.fetch("project_id")
+  @volunteer = Volunteer.find(params.fetch("id").to_i)
+  @project = Project.find(@volunteer.project_id)
+  erb(:volunteer)
+end
+
+patch('/volunteer/:id/edit') do
+  name = params.fetch("name")
+  @volunteer = Volunteer.find(params.fetch("id").to_i)
+  @volunteer.update({:name => name})
+  erb(:volunteer)
+end
+
+delete('/volunteer/:id') do
+  @volunteer = Volunteer.find(params.fetch("id").to_i())
+  @volunteer.delete
+  erb(:success)
+end
