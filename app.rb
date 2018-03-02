@@ -61,9 +61,5 @@ post('/project/:id') do
   volunteer_new = Volunteer.new({:name => name, :project_id => project_id, :id => nil})
   volunteer_new.save()
   @volunteers = Volunteer.all()
-  # title = params.fetch("title") Project.find(params.fetch("id").to_i())
-  # volunteer = Volunteer.new({name: => name, :id => nil, :project_id => project_id})
-  # volunteer.save()
-  # @volunteers.all
   erb(:success)
 end
