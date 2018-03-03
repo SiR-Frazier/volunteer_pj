@@ -2,12 +2,11 @@
 <h3>Description: </h3>
 
 <% if @project.volunteers().any?() %>
-
   <h3>Here are all of the volunteers for this project:</h3>
 
   <ul>
     <% @project.volunteers().each() do |volunteer| %>
-      <li><a href= "volunteer/<%volunteer.id%>/edit"><%= volunteer.name() %></a></li>
+      <li><a href= "/volunteer/<%volunteer.id%>/edit"><%= volunteer.name() %></a></li>
     <% end %>
   </ul>
 

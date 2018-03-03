@@ -11,11 +11,11 @@ set(:show_exceptions, false)
 # # The user should be able to visit the home page and fill out a form to add a new project. When that project is created, the application should direct them back to the homepage.
 #
 describe 'the project creation path', {:type => :feature} do
-  it 'takes the user to the homepage where they can create a project' do
+  it 'takes the user to the page where they can create a project' do
     visit '/project/new'
     fill_in('title', :with => 'Teaching Kids to Code')
     click_button('Create Project')
-    # expect(page).to have_content('Teaching Kids to Code')
+    expect(page).to have_content('Success!')
   end
 end
 #

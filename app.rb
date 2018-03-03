@@ -65,7 +65,6 @@ post('/project/:id') do
 end
 
 get('/volunteer/:id') do
-  project_id = params.fetch("project_id")
   @volunteer = Volunteer.find(params.fetch("id").to_i)
   @project = Project.find(@volunteer.project_id)
   erb(:volunteer)

@@ -1,7 +1,7 @@
-<h1>Details for <%= @volunteer.name %> :</h1>
+<h1>Details for <%=@volunteer.name()%>:</h1>
 
 <h2>Edit Volunteer Name:</h2>
-  <form action="/volunteer/<%= @volunteer.id %>" method ="post">
+  <form action="/volunteer/<%=@volunteer.id()%>" method ="post">
     <input name="_method" type="hidden" value="patch">
 
     <label for="name">Update Name:</label>
@@ -15,3 +15,6 @@
 
     <button type="submit" button btn-primary>Delete</button>
   </form>
+
+  <button><a href="/">Home</a></button>
+  <button><a href="/project/<%= project.id()%>">View Project</a></button>
