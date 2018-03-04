@@ -5,8 +5,8 @@ require("./lib/project")
 require("./lib/volunteer")
 require("pg")
 
-  # DB = PG.connect({:dbname => "volunteer_tracker"}) switch to v_t before submitting
-  DB = PG.connect({:dbname => "volunteer_tracker_test"})
+  # DB = PG.connect({:dbname => "volunteer_tracker"})
+  # DB = PG.connect({:dbname => "volunteer_tracker_test"})
 
 get('/') do
   erb(:home)
@@ -74,7 +74,7 @@ patch('/volunteer/:id/edit') do
   name = params.fetch("name")
   @volunteer = Volunteer.find(params.fetch("id").to_i)
   @volunteer.update({:name => name})
-  erb(:volunteer)
+  erb(:success)
 end
 
 delete('/volunteer/:id') do

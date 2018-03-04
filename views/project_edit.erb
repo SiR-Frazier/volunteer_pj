@@ -4,7 +4,7 @@
   <input name ="_method" type="hidden" value="patch">
 
   <label for="title">Rename your project:</label>
-  <input id="title" name="title" type="text">
+  <input id="title" name="title" placeholder="title" type="text">
 
   <button type="submit" button btn-primary>Update Project</button>
 </form>
@@ -12,5 +12,5 @@
 <form action="/project/<%=@project.id()%>" method="post">
   <input name="_method" type="hidden" value="delete">
 
-  <button type="submit">Delete Project</button>
+  <button type="submit">Delete</button>
 </form>
