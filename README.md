@@ -8,11 +8,9 @@ _This app shows a list of the projects for a fictitious non-profit. It allows us
 
 ## Setup/Installation Requirements
 
-* _Clone repository._
-
-## Known Bugs
-
-_Currently, the app is experiencing routing issues between the pages._
+* _Clone Git Repository to your Desktop._
+* _Use terminal to navigate to root of the project folder and run $ruby app.rb_
+* _Open your preferred browser and go to localhost:4567_
 
 ## Support and contact details
 
