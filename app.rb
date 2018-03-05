@@ -4,9 +4,9 @@ also_reload("lib/**/*.rb")
 require("./lib/project")
 require("./lib/volunteer")
 require("pg")
-
+require("pry")
   # DB = PG.connect({:dbname => "volunteer_tracker"})
-  # DB = PG.connect({:dbname => "volunteer_tracker_test"})
+  DB = PG.connect({:dbname => "volunteer_tracker_test"})
 
 get('/') do
   erb(:home)
@@ -51,7 +51,7 @@ delete("/project/:id") do
   @project = Project.find(params.fetch("id").to_i())
   @project.delete()
   @projects = Project.all()
-  erb(:projects)
+  redirect to "/projects"
 end
 
 post('/project/:id') do
@@ -64,16 +64,14 @@ post('/project/:id') do
   erb(:success)
 end
 
-get('/volunteer/:id') do
+get('/volunteer/:id/edit') do
   @volunteer = Volunteer.find(params.fetch("id").to_i)
-  @project = Project.find(@volunteer.project_id)
   erb(:volunteer)
 end
 
-patch('/volunteer/:id/edit') do
-  name = params.fetch("name")
+patch('/volunteer/:id') do
   @volunteer = Volunteer.find(params.fetch("id").to_i)
-  @volunteer.update({:name => name})
+  @volunteer.update({:name => params.fetch("name")})
   erb(:success)
 end
 

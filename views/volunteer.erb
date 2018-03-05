@@ -1,4 +1,4 @@
-<h1>Details for <%=@volunteer.name()%>:</h1>
+<h1>Details for <%= @volunteer.name() %>:</h1>
 
 <h2>Edit Volunteer Name:</h2>
   <form action="/volunteer/<%=@volunteer.id()%>" method ="post">
@@ -17,4 +17,4 @@
   </form>
 
   <button><a href="/">Home</a></button>
-  <button><a href="/project/<%= project.id()%>">View Project</a></button>
+  <button><a href="/project/<%= @volunteer.project_id()%>">View Project</a></button>

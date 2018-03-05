@@ -21,30 +21,29 @@ end
 
 # A user should be able to click on a project to see its detail. The detail page includes a form where the project can be updated. When the form is submitted, the user can be directed to either the home page or that project's detail page. (The test will work for either.)
 
-# describe 'the project edit path', {:type => :feature} do
-#   it 'lets user update the project title' do
-#     test_project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-#     test_project.save
-#     visit '/project/:id/edit'
-#     fill_in('title', :with => 'Teaching Ruby to Kids')
-#     click_button('Update Project')
-#     expect(page).to have_content('Success!')
-#   end
-# end
-# #
+describe 'the project edit path', {:type => :feature} do
+  it 'lets user update the project title' do
+    test_project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+    test_project.save
+    visit "/project/#{test_project.id}/edit"
+    fill_in('title', :with => 'Teaching Ruby to Kids')
+    click_button('Update Project')
+    expect(page).to have_content('Success!')
+  end
+end
+#
 # # # A user should be able to nagivate to a project's detail page and delete the project. The user will then be directed to the index page. The project should no longer be on the list of projects.
 # #
-# describe 'the project delete path', {:type => :feature} do
-#   it 'allows a user to delete a project' do
-#     test_project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-#     test_project.save
-#     id = test_project.id
-#     visit "/projects/#{id}/edit"
-#     click_button('Delete')
-#     vist '/project'
-#     expect(page).to have_content("Success!")
-#   end
-# end
+describe 'the project delete path', {:type => :feature} do
+  it 'allows a user to delete a project' do
+    test_project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+    test_project.save
+    id = test_project.id
+    visit "/project/#{id}/edit"
+    click_button("Delete")
+    expect(page).to have_content("Currently, there aren't any projects.")
+  end
+end
 
 # # The user should be able to click on a project detail page and see a list of all volunteers working on that project. The user should be able to click on a volunteer to see the volunteer's detail page.
 # #

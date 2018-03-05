@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='../css/styles.css'>
+    <script type='text/javascript' src='js/scripts.js'></script>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+    <title>Black Boys Who Code</title>
+  </head>
+  <body>
+    <div class='container'>
+      <h2>Edit Teaching Kids to Code project</h2>
+
+<form action="/project/873" method="post">
+  <input name ="_method" type="hidden" value="patch">
+
+  <label for="title">Rename your project:</label>
+  <input id="title" name="title" placeholder="title" type="text">
+
+  <button type="submit" button btn-primary>Update Project</button>
+</form>
+
+<form action="/project/873" method="post">
+  <input name="_method" type="hidden" value="delete">
+
+  <button type="submit" id="project_delete">Delete</button>
+</form>
+
+    </div>
+  </body>
